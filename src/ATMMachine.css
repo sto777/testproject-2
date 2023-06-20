@@ -1,0 +1,367 @@
+/* Light Theme */
+.atm-machine--light {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  .atm-machine--light .atm-machine__title {
+    color: #333;
+  }
+  
+  .atm-machine--light .atm-machine__balance {
+    color: #333;
+  }
+  
+  .atm-machine--light .atm-machine__input {
+    border-color: #ccc;
+  }
+  
+  .atm-machine--light .atm-machine__button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .atm-machine--light .atm-machine__theme-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  /* Dark Theme */
+  .atm-machine--dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .atm-machine--dark .atm-machine__title {
+    color: #fff;
+  }
+  
+  .atm-machine--dark .atm-machine__balance {
+    color: #fff;
+  }
+  
+  .atm-machine--dark .atm-machine__input {
+    border-color: #fff;
+  }
+  
+  .atm-machine--dark .atm-machine__button {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .atm-machine--dark .atm-machine__theme-button {
+    background-color: #2196f3;
+    color: white;
+  }
+  .atm-machine__button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Add the following media query for responsiveness */
+  @media (max-width: 480px) {
+    .atm-machine__button {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+  .atm-machine {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  .atm-machine--dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .atm-machine__title {
+    text-align: center;
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .atm-machine__balance {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .atm-machine__input {
+    display: block;
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .atm-machine__button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .atm-machine__message {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .atm-machine__theme-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .atm-machine__card {
+  width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  position: relative;
+  margin: 20px auto;
+}
+
+.atm-machine__card-front,
+.atm-machine__card-back {
+  width: 65%;
+  height: 60%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 0.8s ease;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.atm-machine__card-front {
+  background-color: red;
+  color: #fff;
+  transform: rotateY(0deg);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.atm-machine__card-back {
+  background-color: orange;
+  color: #333;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.atm-machine__card-number {
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.atm-machine__card-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.atm-machine__card-detail {
+  flex: 1;
+}
+
+.atm-machine__card-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+}
+
+.atm-machine__card-holder,
+.atm-machine__card-expiry {
+  font-size: 16px;
+}
+
+.atm-machine__card-holder {
+  text-transform: uppercase;
+}
+
+.atm-machine__card-chip,
+.atm-machine__card-stripe {
+  height: 40px;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  margin-bottom: 10px;
+}
+
+.atm-machine__card {
+    width: 360px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  
+  .atm-machine__card--flipped .atm-machine__card-front {
+    transform: rotateY(-180deg);
+  }
+  
+  .atm-machine__card--flipped .atm-machine__card-back {
+    transform: rotateY(0);
+  }
+   
+  .atm-machine__card-chip {
+    width: 40px;
+    height: 40px;
+    background-color: #888;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .atm-machine__card-number {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .atm-machine__card-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .atm-machine__card-detail {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .atm-machine__card-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+  }
+  
+  .atm-machine__card-holder {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .atm-machine__card-expiry {
+    width: 60px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .atm-machine__card-back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+  }
+  
+  .atm-machine__card-stripe {
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    margin-bottom: 10px;
+  }
+  
+  .atm-machine__card-cvv {
+    width: 60px;
+    height: 30px;
+    background-color: whitesmoke;
+    border: 1px solid red;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+  }
+  .signup-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    position: top;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .signup-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-container label {
+    margin-bottom: 8px;
+  }
+  
+  .signup-container input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .signup-container button {
+    padding: 8px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .signup-container button:hover {
+    background-color: #45a049;
+  }
+  
+  .signup-container .forgot-password {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
