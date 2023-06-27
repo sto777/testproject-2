@@ -98,6 +98,7 @@ const ATMMachine = ({logOut}) => {
     setLoggedIn(false);
     setUsername('');
     setPassword('');
+    logOut();
   };
 
   const handleCardFlip = () => {

@@ -1,41 +1,45 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './ATMMachine.css';
 import ATMMachine from './ATMMachine';
-import LoginPage from './LoginPage';
-import SignUpPage from './SignUpPage';
 
-const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const LoginPage = ({ onLogin }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = (username, password) => {
-    // Perform authentication logic here
-    // Set the value of isAuthenticated based on the authentication result
-    // For example:
-    if (username === 'admin' && password === 'hello') {
-      setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
-    }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Perform login authentication here
+    onLogin(username, password);
   };
 
-  return (
-    <Router>
-      <Routes>
-        <Route
-          path="/login"
-          element={isAuthenticated ? <Navigate to="/" /> : <LoginPage onLogin={handleLogin} />}
-        />
-        <Route
-          path="/signup"
-          element={isAuthenticated ? <Navigate to="/" /> : <SignUpPage />}
-        />
-        <Route
-          path="/"
-          element={isAuthenticated ? <ATMMachine /> : <Navigate to="/login" />}
-        />
-      </Routes>
-    </Router>
-  );
-};
 
-export default App;
+    return (
+    <div className={`atm-machine atm-machine--${ATMMachine}`}>
+        <h1 className="atm-machine__title">ATM Machine</h1>
+        <div className="atm-machine__login">
+          <h2>Login</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} />
+            <p>
+          <button onClick={handleLogin}>Log In</button>
+          </p>
+        </div>
+       
+        <p>
+          Don't have an account? <Link to="/Signup">Sign Up</Link> {/* Add the path to the Sign Up page here */}
+        </p>
+    </div>
+       );
+      }
+    
+
+export default LoginPage;

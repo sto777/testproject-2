@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './ATMMachine.css';
+import './SignUpPage.css';
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ function SignUpPage() {
       <button onClick={handleSignUp}>Sign Up</button>
 
       <p>
-        Already have an account? <Link to="/LoginPage">Log In</Link>
+        Already have an account? <Link to="/atm-machine">Log In</Link>
       </p>
     </div>
   );
