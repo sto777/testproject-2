@@ -1,27 +1,42 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import ATMMachine from './ATMMachine';
 import LoginPage from './LoginPage';
-import SignUp from './SignUp';
+import SignUpPage from './SignUpPage';
 
 const App = () => {
-  const isAuthenticated = /* check if user is authenticated */ false;
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/login">
-          {isAuthenticated ? <Redirect to="/atm" /> : <LoginPage />}
-        </Route>
-        <Route exact path="/signup">
-          {isAuthenticated ? <Redirect to="/atm" /> : <SignUp />}
-        </Route>
-        <Route exact path="/atm">
-          {isAuthenticated ? <ATMMachine /> : <Redirect to="/signup" />}
-        </Route>
-      </Switch>
-    </Router>
-  );
+  const handleLogin = (username, password) => {
+    // Perform authentication logic here
+    // Set the value of isAuthenticated based on the authentication result
+    // For example:
+    if (username === 'admin' && password === 'password') {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  };
+
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/login"
+          element={isAuthenticated ? <Navigate to="/atm-machine" /> : <LoginPage onLogin={handleLogin} />}
+        />
+        <Route
+          path="/signup"
+          element={<Navigate to="/login" />}
+        />
+        <Route
+          path="/atm-machine"
+          element={isAuthenticated ? <ATMMachine /> : <Navigate to="/login" />}
+
+        />
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;
