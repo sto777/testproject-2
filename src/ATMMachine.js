@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './ATMMachine.css';
+import { Link } from 'react-router-dom';
 
-const ATMMachine = () => {
+const ATMMachine = ({logOut}) => {
   const [balance, setBalance] = useState(100000000);
   const [withdrawAmount, setWithdrawAmount] = useState('');
   const [depositAmount, setDepositAmount] = useState('');
@@ -97,39 +98,14 @@ const ATMMachine = () => {
     setLoggedIn(false);
     setUsername('');
     setPassword('');
+    logOut();
   };
 
   const handleCardFlip = () => {
     setCardFlipped(!cardFlipped);
   };
 
-  if (!loggedIn) {
-    return (
-      <div className={`atm-machine atm-machine--${theme}`}>
-        <h1 className="atm-machine__title">ATM Machine</h1>
-        <div className="atm-machine__login">
-          <h2>Login</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button onClick={handleLogin}>Log In</button>
-        </div>
-        <button className="atm-machine__theme-button" onClick={handleThemeChange}>
-          Change Theme
-        </button>
-      </div>
-    );
-  }
-
+ 
   return (
     <div className={`atm-machine atm-machine--${theme}`}>
       <h1 className="atm-machine__title">ATM Machine</h1>
